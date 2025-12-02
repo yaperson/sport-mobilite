@@ -67,6 +67,7 @@ import Logo from "./Logo.astro"
 	display: flex;
     flex-direction: column;
     align-items: center;
+	z-index: 1;
 }
 
 .addressContainer {
@@ -88,4 +89,9 @@ h1, h2, h3, .addressContainer {
 	text-transform: uppercase;
 }
 
+@media screen and (max-width: 768px){
+	.geometrySVG {
+		display: none;
+	}
+}
 </style>

@@ -1,89 +1,112 @@
 ---
-import Header from '../components/Header.astro';
-import Layout from '../layouts/Layout.astro';
-import ProgramSVG from '../components/ProgramSVG.astro';
-import Footer from  '../components/Footer.astro';
+import Header from "../components/Header.astro";
+import Layout from "../layouts/Layout.astro";
+import ProgramSVG from "../components/ProgramSVG.astro";
+import Footer from "../components/Footer.astro";
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Header/>
+	<Header />
+	<main>
 		<section id="presentation">
 			<h2>Presentation</h2>
 			<div class="container">
-				<img src="./image_dev.svg" alt="">
-				<p>Il nous ait tous arrivé un jour d'aller à un salon, de tomber sur un produit qui a l'air formidable, mais de ne pas pouvoir l'essayer, manque de place...
-				<br><br>
-				Frustré, l'équipe d'Hopicile a décidé que cette époque était révolue !
-				<br><br>
-				C'est là qu'est née l'idée d'une journée dédiée à l'essai de toutes ces solutions de mobilités et de sports, qui demandent toujours plus de place que les autres</p>
+				<img src="./image_dev.svg" alt="" />
+				<p>
+					Il nous ait tous arrivé un jour d'aller à un salon, de
+					tomber sur un produit qui a l'air formidable, mais de ne pas
+					pouvoir l'essayer, manque de place...
+					<br /><br />
+					Frustré, l'équipe d'Hopicile a décidé que cette époque était
+					révolue !
+					<br /><br />
+					C'est là qu'est née l'idée d'une journée dédiée à l'essai de
+					toutes ces solutions de mobilités et de sports, qui demandent
+					toujours plus de place que les autres
+				</p>
 			</div>
 		</section>
 		<section id="programme">
 			<h2>Au Programme</h2>
 			<div class="container">
 				<div class="container_imgs">
-					<img src="./image_dev.svg" alt="">
-					<img src="./image_dev.svg" alt="">
+					<img src="./image_dev.svg" alt="" />
+					<img src="./image_dev.svg" alt="" />
 				</div>
-				<ProgramSVG/>
+				<ProgramSVG />
 			</div>
 		</section>
 		<section id="partenaires">
 			<h2>Nos Partenaires</h2>
-			<div class="container">
-
-			</div>
+			<div class="container"></div>
 		</section>
-		<Footer/>
+	</main>
+	<Footer />
 </Layout>
 
 <style lang="scss">
 
-h1, h2, h3 {
-	font-family: 'sintony';
-	text-transform: uppercase;
-}
 
-p {
-	font-family: 'akatabReg';
-}
+	h1,
+	h2,
+	h3 {
+		font-family: "sintony";
+		text-transform: uppercase;
+	}
 
-section {
-	min-height: 70vh;
-	width: 100%;
-	display: flex;
-    flex-direction: column;
-    align-items: center;
-	justify-content: center;
+	p {
+		font-family: "akatabReg";
+	}
 
-
-	.container {
+	section {
+		min-height: 70vh;
+		width: 100%;
 		display: flex;
-    	width: 90vw;
-	    justify-content: space-evenly;
+		flex-direction: column;
 		align-items: center;
+		justify-content: center;
 
-		&_imgs {
+		.container {
 			display: flex;
-			flex-direction: column;
-			min-height: 100vh;
+			width: 90vw;
 			justify-content: space-evenly;
-		}
+			align-items: center;
 
-		img {
-			border-radius: 20px;
-        	box-shadow: var(--shadow-1);
-			height: fit-content;
-			background-color: aliceblue;
-		}
-		p, img {
-			max-width: 30vw;
-		}
-		p {
-			font-size: 22px;
+			&_imgs {
+				display: flex;
+				flex-direction: column;
+				min-height: 100vh;
+				justify-content: space-evenly;
+			}
+
+			img {
+				border-radius: 20px;
+				box-shadow: var(--shadow-1);
+				height: fit-content;
+				background-color: aliceblue;
+			}
+			p,
+			img {
+				max-width: 30vw;
+			}
+			p {
+				font-size: 22px;
+			}
 		}
 	}
-}
+
+	@media screen and (max-width: 850px) {
+		section {
+			.container {
+				flex-direction: column;
+				
+				p,
+				img {
+					max-width: 90vw;
+				}
+			}
+		}
+	}
 </style>
