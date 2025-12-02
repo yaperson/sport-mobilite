@@ -1,0 +1,91 @@
+---
+import Logo from "./Logo.astro"
+---
+<div class="homeGeometry">
+	<svg xmlns="http://www.w3.org/2000/svg" width="750" height="757" viewBox="0 0 750 757" fill="none" style="left: 0;" class="geometrySVG">
+	<g filter="url(#filter0_i_49_47)">
+	<path d="M89 174L268.5 757L0 570L0 0L750 0L89 174Z" fill="#FF0000" fill-opacity="0.46"/>
+	</g>
+	<defs>
+	<filter id="filter0_i_49_47" x="-4" y="-4" width="754" height="761" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+	<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+	<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+	<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+	<feOffset dx="-4" dy="-4"/>
+	<feGaussianBlur stdDeviation="6.15"/>
+	<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+	<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+	<feBlend mode="normal" in2="shape" result="effect1_innerShadow_49_47"/>
+	</filter>
+	</defs>
+	</svg>
+
+	<div class="logoContainer">
+		<Logo/>
+		<h1>23 Avril 2026</h1>
+	</div>
+
+	<svg xmlns="http://www.w3.org/2000/svg" width="750" height="757" viewBox="0 0 750 757" fill="none" style="right: 0;" class="geometrySVG">
+	<g filter="url(#filter0_i_49_46)">
+	<path d="M661 583L481.5 0L750 187V757H0L661 583Z" fill="#1500FF" fill-opacity="0.44"/>
+	</g>
+	<defs>
+	<filter id="filter0_i_49_46" x="0" y="0" width="750" height="760" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+	<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+	<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+	<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+	<feOffset dy="3"/>
+	<feGaussianBlur stdDeviation="6.15"/>
+	<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+	<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+	<feBlend mode="normal" in2="shape" result="effect1_innerShadow_49_46"/>
+	</filter>
+	</defs>
+	</svg>
+
+</div>
+<a href="https://maps.app.goo.gl/z729vgJ5uK6gggP89" target="_blank" class="addressContainer">Hopicile, 5 Boulevard de préval, 22100 Dinan</a>
+
+<style>
+.homeGeometry {
+	height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+	align-items: center;
+	position: absolute;
+    z-index: -1;
+}
+.geometrySVG {
+    max-width: fit-content;
+    max-height: inherit;
+	position: absolute;
+	height: 100%;
+}
+
+.logoContainer {
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.addressContainer {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	margin: 1em;
+	text-decoration: none;
+	color: black;
+	z-index: 10;	
+	background: rgba(240, 248, 255, 0.579);
+    padding: 0.2em;
+    border-radius: 5px;
+	backdrop-filter: var(--blur-1);
+}
+
+h1, h2, h3, .addressContainer {
+	font-family: 'sintony';
+	text-transform: uppercase;
+}
+
+</style>

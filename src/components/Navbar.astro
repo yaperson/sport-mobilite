@@ -1,0 +1,47 @@
+<div class="navbar">
+    <a href="#presentation" class="navbar_link">
+        <img src="./projet.png" alt="">
+        <p>Presentation</p>
+    </a>    
+    <a href="#programme" class="navbar_link">
+        <img src="./programme.png" alt="">
+        <p>Programme</p>
+    </a>    
+    <a href="#partenaires" class="navbar_link">
+        <img src="./partenaires.png" alt="">
+        <p>Partenaires</p>
+    </a>    
+    <a href="/" class="navbar_link">
+        <img src="./reserver.png" alt="">
+        <p>Réserver</p>
+    </a>    
+</div>
+
+<style lang="scss">
+    .navbar {
+        display: flex;
+        width: fit-content;
+        border-radius: 20px;
+        box-shadow: var(--shadow-1);
+        margin: 1em;
+        position: fixed;
+        backdrop-filter: var(--blur-1);
+        // background: #ffffffc7;
+        background: rgba(240, 248, 255, 0.579); 
+        font-family: 'sintony';
+    
+        &_link {
+            display: flex;
+            align-items: center;
+            padding: 0.5em;
+            color: black;
+            text-decoration: none;
+        }
+        p {
+            margin: 0.5em;
+        }
+        img {
+            max-width: 28px;
+        }
+    }
+</style>
