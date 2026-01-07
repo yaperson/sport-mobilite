@@ -1,0 +1,147 @@
+<!-- Bouton pour ouvrir modal -->
+<button class="a11y-btn" aria-label="Paramètres d’accessibilité">⚙️</button>
+
+<!-- Modal paramètres -->
+<div id="a11y-panel" class="a11y-panel" role="dialog" aria-modal="true" aria-hidden="true" tabindex="-1">
+  <h2>Accessibilité</h2>
+
+  <div class="a11y-section">
+    <p>Taille du texte :</p>
+    <button data-font="small">A-</button>
+    <button data-font="medium">A</button>
+    <button data-font="large">A+</button>
+  </div>
+
+  <div class="a11y-section">
+    <p>Menu mobile :</p>
+    <button data-menu="left">Gauche</button>
+    <button data-menu="right">Droite</button>
+  </div>
+
+  <button class="a11y-close">Fermer</button>
+</div>
+
+
+
+<script>
+(() => {
+  const btn = document.querySelector('.a11y-btn');
+  const panel = document.getElementById('a11y-panel');
+  const close = panel.querySelector('.a11y-close');
+  const menu = document.querySelector('.navbar__menu');
+
+  if (!btn || !panel || !menu) return;
+
+  /* ===== Modal ===== */
+  const open = () => panel.setAttribute('aria-hidden','false');
+  const hide = () => panel.setAttribute('aria-hidden','true');
+
+  btn.addEventListener('click', open);
+  close.addEventListener('click', hide);
+
+  document.addEventListener('keydown', e => { if(e.key==='Escape') hide(); });
+  document.addEventListener('click', e => {
+    if(panel.getAttribute('aria-hidden')==='false' && !panel.contains(e.target) && e.target!==btn) hide();
+  });
+
+  /* ===== Taille du texte ===== */
+  const fontButtons = panel.querySelectorAll('[data-font]');
+  fontButtons.forEach(b => b.addEventListener('click', () => {
+    document.documentElement.dataset.fontSize = b.dataset.font;
+    localStorage.setItem('fontSize', b.dataset.font);
+  }));
+
+  const savedFont = localStorage.getItem('fontSize');
+  if(savedFont) document.documentElement.dataset.fontSize = savedFont;
+
+  /* ===== Position menu mobile ===== */
+  const menuButtons = panel.querySelectorAll('[data-menu]');
+  const applyMenuSide = () => {
+    menu.classList.remove('left','right'); // toujours nettoyer
+    if(window.innerWidth <= 768) {       // seulement sur mobile
+      const side = document.documentElement.dataset.menuSide || 'left';
+      menu.classList.add(side);
+    }
+  };
+
+  menuButtons.forEach(b => b.addEventListener('click', () => {
+    document.documentElement.dataset.menuSide = b.dataset.menu;
+    localStorage.setItem('menuSide', b.dataset.menu);
+    applyMenuSide();
+  }));
+
+  const savedSide = localStorage.getItem('menuSide');
+  if(savedSide) document.documentElement.dataset.menuSide = savedSide;
+
+  /* Appliquer au chargement et au resize */
+  applyMenuSide();
+  window.addEventListener('resize', applyMenuSide);
+})();
+    
+</script>
+
+<style lang="scss">
+.a11y-btn {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  border: none;
+  background: var(--modal-backgroud);
+  color: white;
+  cursor: pointer;
+  z-index: 1000;
+}
+.a11y-panel {
+  position: fixed;
+  z-index: 10;
+  bottom: 4rem;
+  right: 1rem;
+  width: 250px;
+  background: var(--modal-backgroud);
+  backdrop-filter: var(--blur-1);
+  border-radius: 12px;
+  box-shadow: 0 0 13px 0 #00000033;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-family: 'akatabReg';
+  font-size: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: none; /* pas d'animation */
+}
+
+.a11y-panel[aria-hidden="false"] {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.a11y-section {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+button {
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: rgba(0,0,0,0.1);
+}
+
+.a11y-section button:hover,
+.a11y-section button:focus-visible {
+  background: rgba(0,0,0,0.2);
+  outline: 2px solid black;
+}
+html[data-font-size="small"] { font-size: 90%; }
+html[data-font-size="medium"] { font-size: 100%; }
+html[data-font-size="large"] { font-size: 120%; }
+
+</style>

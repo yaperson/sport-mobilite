@@ -1,47 +1,164 @@
-<div class="navbar">
-    <a href="#presentation" class="navbar_link">
-        <img src="./projet.png" alt="">
-        <p>Presentation</p>
-    </a>    
-    <a href="#programme" class="navbar_link">
-        <img src="./programme.png" alt="">
-        <p>Programme</p>
-    </a>    
-    <a href="#partenaires" class="navbar_link">
-        <img src="./partenaires.png" alt="">
-        <p>Partenaires</p>
-    </a>    
-    <a href="/" class="navbar_link">
-        <img src="./reserver.png" alt="">
-        <p>Réserver</p>
-    </a>    
-</div>
+<nav class="navbar" aria-label="Navigation principale">
+  <button class="navbar__toggle" aria-expanded="false">☰</button>
+
+
+  <ul class="navbar__menu" id="navbar-menu">
+    <li>
+      <a href="#presentation">
+        <img src="./projet.png" alt="" aria-hidden="true" />
+        <span>Présentation</span>
+      </a>
+    </li>
+    <li>
+      <a href="#programme">
+        <img src="./programme.png" alt="" aria-hidden="true" />
+        <span>Programme</span>
+      </a>
+    </li>
+    <li>
+      <a href="#partenaires">
+        <img src="./partenaires.png" alt="" aria-hidden="true" />
+        <span>Partenaires</span>
+      </a>
+    </li>
+    <li>
+      <a href="/">
+        <img src="./reserver.png" alt="" aria-hidden="true" />
+        <span>Réserver</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<script>
+  const nav = document.querySelector<HTMLElement>('.navbar');
+
+  if (nav) {
+    const toggle = nav.querySelector<HTMLButtonElement>('.navbar__toggle');
+    const menu = nav.querySelector<HTMLUListElement>('.navbar__menu');
+
+    if (toggle && menu) {
+      toggle.addEventListener('click', () => {
+        const open = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!open));
+        menu.classList.toggle('is-open');
+      });
+    }
+  }
+</script>
+
+
+
+
 
 <style lang="scss">
-    .navbar {
-        display: flex;
-        width: fit-content;
-        border-radius: 20px;
-        box-shadow: var(--shadow-1);
-        margin: 1em;
-        position: fixed;
-        backdrop-filter: var(--blur-1);
-        // background: #ffffffc7;
-        background: rgba(240, 248, 255, 0.579); 
-        font-family: 'sintony';
-    
-        &_link {
-            display: flex;
-            align-items: center;
-            padding: 0.5em;
-            color: black;
-            text-decoration: none;
-        }
-        p {
-            margin: 0.5em;
-        }
-        img {
-            max-width: 28px;
-        }
+.navbar {
+  position: fixed;
+  top: 1rem;
+  z-index: 100;
+  font-family: 'sintony';
+}
+
+/* Bouton burger */
+.navbar__toggle {
+  display: none;
+  background: rgba(240, 248, 255, 0.9);
+  border: none;
+  padding: 0.6rem 0.8rem;
+  border-radius: 12px;
+  font-size: 1.5rem;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 3px solid black;
+  }
+}
+
+/* Menu */
+.navbar__menu {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 20px;
+  box-shadow: var(--shadow-1);
+  backdrop-filter: var(--blur-1);
+  background: rgba(240, 248, 255, 0.85);
+  list-style: none;
+  margin: 0;
+
+  li a {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    text-decoration: none;
+    color: black;
+    border-radius: 12px;
+
+    &:hover,
+    &:focus-visible {
+      background: rgba(0, 0, 0, 0.08);
+      outline: none;
     }
+
+    img {
+      width: 28px;
+      height: 28px;
+    }
+
+    span {
+      margin-left: 0.5rem;
+    }
+  }
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  // ajout pour param
+  /* Par défaut navbar à gauche */
+  html[data-menu-side="left"] .navbar {
+    left: 1rem;
+    right: auto;
+  }
+
+  /* Navbar à droite */
+  html[data-menu-side="right"] .navbar {
+    left: auto;
+    right: 1rem;
+    .navbar__menu {
+      translate: -10em;
+    }
+  }
+
+  .navbar__toggle {
+    display: block;
+  }
+
+  .navbar__menu {
+    position: absolute;
+    top: 3.5rem;
+    left: 0;
+    flex-direction: column;
+    width: max-content;
+    transform: translateY(-10px);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.2s ease;
+  }
+
+  .navbar__menu.is-open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+/* Accessibilité : réduction des animations */
+@media (prefers-reduced-motion: reduce) {
+  .navbar__menu {
+    transition: none;
+  }
+}
+
+
+
 </style>
