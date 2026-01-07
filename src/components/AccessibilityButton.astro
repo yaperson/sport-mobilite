@@ -5,23 +5,26 @@
 <div id="a11y-panel" class="a11y-panel" role="dialog" aria-modal="true" aria-hidden="true" tabindex="-1">
   <h2>Accessibilité</h2>
 
+  <p>Taille du texte :</p>
   <div class="a11y-section">
-    <p>Taille du texte :</p>
-    <button data-font="small">A-</button>
-    <button data-font="medium">A</button>
-    <button data-font="large">A+</button>
+    <button id="a11y-font-small" data-font="small">A-</button>
+    <button id="a11y-font-medium" data-font="medium">A</button>
+    <button id="a11y-font-large" data-font="large">A+</button>
   </div>
 
+  <p>Menu mobile :</p>
   <div class="a11y-section">
-    <p>Menu mobile :</p>
-    <button data-menu="left">Gauche</button>
-    <button data-menu="right">Droite</button>
+    <button id="a11y-side-left" data-menu="left">Gauche</button>
+    <button id="a11y-side-center" data-menu="center">Centre</button>
+    <button id="a11y-side-right" data-menu="right">Droite</button>
   </div>
 
   <button class="a11y-close">Fermer</button>
 </div>
 
-
+<div id="a11y-toast" role="status" aria-live="polite">
+  💡 Vous pouvez ajuster la taille du texte et la position du menu avec le bouton ⚙️
+</div>
 
 <script>
 (() => {
@@ -59,7 +62,7 @@
   const applyMenuSide = () => {
     menu.classList.remove('left','right'); // toujours nettoyer
     if(window.innerWidth <= 768) {       // seulement sur mobile
-      const side = document.documentElement.dataset.menuSide || 'left';
+      const side = document.documentElement.dataset.menuSide || 'center';
       menu.classList.add(side);
     }
   };
@@ -77,6 +80,25 @@
   applyMenuSide();
   window.addEventListener('resize', applyMenuSide);
 })();
+
+// Notif 
+(() => {
+  const toast = document.getElementById('a11y-toast');
+
+  // Affiche seulement si jamais vu
+  if(!localStorage.getItem('a11yToastShown')) {
+    toast.classList.add('show');
+
+    // Masque après 5 secondes
+    // setTimeout(() => toast.classList.remove('show'), 5000);
+
+    // onclick
+    toast.addEventListener("click", ()=>{toast.classList.remove('show')});
+
+    // Enregistre que l'utilisateur a vu le toast
+    localStorage.setItem('a11yToastShown', 'true');
+  }
+})();
     
 </script>
 
@@ -85,10 +107,8 @@
   position: fixed;
   bottom: 1rem;
   right: 1rem;
-  width: 3rem;
   height: 3rem;
   font-size: 1.5rem;
-  border-radius: 50%;
   border: none;
   background: var(--modal-backgroud);
   color: white;
@@ -120,7 +140,9 @@
   opacity: 1;
   pointer-events: auto;
 }
-
+.a11y-close {
+    background: #ff67677d;
+}
 .a11y-section {
   display: flex;
   gap: 0.5rem;
@@ -140,8 +162,99 @@ button {
   background: rgba(0,0,0,0.2);
   outline: 2px solid black;
 }
-html[data-font-size="small"] { font-size: 90%; }
-html[data-font-size="medium"] { font-size: 100%; }
-html[data-font-size="large"] { font-size: 120%; }
+html[data-font-size="small"]  {
+    font-size: 90%; 
+    #a11y-font-small {
+        border: solid 1px;
+    }
+    #a11y-font-medium {
+        border: none;
+    }
+    #a11y-font-large {
+        border: none;
+    }
+}
+html[data-font-size="medium"] {
+    font-size: 100%; 
+    #a11y-font-small {
+        border: none;
+    }
+    #a11y-font-medium {
+        border: solid 1px;
+    }
+    #a11y-font-large {
+        border: none;
+    }
+
+}
+html[data-font-size="large"]  {
+    font-size: 120%; 
+    #a11y-font-small {
+        border: none;
+    }
+    #a11y-font-medium {
+        border: none;
+    }
+    #a11y-font-large {
+        border: solid 1px;
+    }
+
+}
+
+html[data-menu-side="left"] {
+    #a11y-side-left {
+        border: solid 1px;
+    }
+    #a11y-side-center {
+        border: none;
+    }
+    #a11y-side-right {
+        border: none;
+    }
+}
+html[data-menu-side="center"] {
+    #a11y-side-left {
+        border: none;
+    }
+    #a11y-side-center {
+        border: solid 1px;
+    }
+    #a11y-side-right {
+        border: none;
+    }
+}
+html[data-menu-side="right"] {
+    #a11y-side-left {
+        border: none;
+    }
+    #a11y-side-center {
+        border: none;
+    }
+    #a11y-side-right {
+        border: solid 1px;
+    }
+}
+
+#a11y-toast {
+  position: fixed;
+  user-select: none;
+  bottom: 5rem;
+  right: 1rem;
+  background: var(--modal-backgroud);
+  backdrop-filter: var(--blur-1);
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  font-family: 'akatabReg';
+  font-size: 0.9rem;
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+#a11y-toast.show {
+  opacity: 1;
+  pointer-events: auto;
+}
 
 </style>
