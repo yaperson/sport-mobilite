@@ -1,3 +1,8 @@
+---
+const { description } = Astro.props
+import JSONLD from "../components/JSON-LD.astro";
+
+---
 <!doctype html>
 <html lang="en">
 	<head>
@@ -5,14 +10,23 @@
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={description}>
+		<link rel="canonical" href={`https://sport-mobilite.fr`} />
+		<link rel="sitemap" href="/sitemap-index.xml" />
+		<meta property="og:title" content={`Sport & Mobilité`} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={`https://sport-mobilite.fr`} />
+		<meta property="og:image" content="/accessibilite.png" />
 		<title>Sport & Mobilité</title>
+		<JSONLD/>
 	</head>
 	<body>
 		<slot />
 	</body>
 </html>
 
-<style lang="scss">
+<style lang="scss" >
 	:root {
 		--shadow-1: 0 0 13px 0px #00000033;
 		--blur-1: blur(20px);
