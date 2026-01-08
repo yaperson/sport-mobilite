@@ -1,7 +1,9 @@
 ---
-const { description } = Astro.props
 import JSONLD from "../components/JSON-LD.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
+const { description } = Astro.props
 ---
 <!doctype html>
 <html lang="en">
@@ -22,11 +24,13 @@ import JSONLD from "../components/JSON-LD.astro";
 		<JSONLD/>
 	</head>
 	<body>
+		<Header />
 		<slot />
+		<Footer />
 	</body>
 </html>
 
-<style lang="scss" >
+<style lang="scss" is:global >
 	:root {
 		--shadow-1: 0 0 13px 0px #00000033;
 		--blur-1: blur(20px);
@@ -50,16 +54,77 @@ import JSONLD from "../components/JSON-LD.astro";
 		scroll-behavior: smooth;
 	}
 
-	h1 {
-	font-size: 2.5rem; /* avant c'était 40px, par exemple */
-	}
+	// h1 {
+	// font-size: 2.5rem; /* avant c'était 40px, par exemple */
+	// }
 
-	h2 {
-	font-size: 2rem;
-	}
+	// h2 {
+	// font-size: 2rem;
+	// }
 
+	// h3 {
+	// font-size: 1.5rem;
+	// }
+
+	h1,
+	h2,
 	h3 {
-	font-size: 1.5rem;
+		font-family: "sintony";
+		text-transform: uppercase;
+	}
+
+	p {
+		font-family: "akatabReg";
+	}
+
+	section {
+		min-height: 70vh;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+
+		.container {
+			display: flex;
+			width: 90vw;
+			justify-content: space-evenly;
+			align-items: center;
+
+			&_imgs {
+				display: flex;
+				flex-direction: column;
+				min-height: 100vh;
+				justify-content: space-evenly;
+			}
+
+			img {
+				border-radius: 20px;
+				box-shadow: var(--shadow-1);
+				height: fit-content;
+				background-color: aliceblue;
+			}
+			p,
+			img {
+				max-width: 30vw;
+			}
+			p {
+				font-size: 1.2rem;
+			}
+		}
+	}
+
+	@media screen and (max-width: 850px) {
+		section {
+			.container {
+				flex-direction: column;
+				
+				p,
+				img {
+					max-width: 90vw;
+				}
+			}
+		}
 	}
 
 </style>

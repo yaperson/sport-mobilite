@@ -10,7 +10,9 @@ export default defineConfig({
   site: url,
   integrations: [
     sitemap({
-      filter: (page) => page !== `${url}/admin/`,
+      filter: (page) => 
+        page !== `${url}/admin/` &&
+        page !== `${url}/legal/`,
     }), 
     robotsTxt(),
   ]

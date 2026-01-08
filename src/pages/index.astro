@@ -1,17 +1,15 @@
 ---
-import Header from "../components/Header.astro";
 import Layout from "../layouts/Layout.astro";
 import ProgramSVG from "../components/ProgramSVG.astro";
-import Footer from "../components/Footer.astro";
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import HomeBackground from "../components/HomeBackground.astro";
+import Partner from "../components/Partner.astro";
 ---
 
-<Layout description=`journée dédiée à l'essai de
+<Layout description=`Journée dédiée à l'essai de
 					toutes ces solutions de mobilités et de sports, qui demandent
 					toujours plus de place que les autres ! Première édition le 23 Avril 2026`>
-	<Header />
 	<main>
+    	<HomeBackground />
 		<section id="presentation">
 			<h2>Presentation</h2>
 			<div class="container">
@@ -42,73 +40,44 @@ import Footer from "../components/Footer.astro";
 		</section>
 		<section id="partenaires">
 			<h2>Nos Partenaires</h2>
-			<div class="container"></div>
+			<div class="container partner">
+				<Partner
+					name="axionsante"
+					website="https://axion-sante.fr/"
+					logo="axionsante.png"
+					desc="Réseau national de distributeurs indépendants"
+				/>
+				<Partner
+					name="quadrix"
+					website="https://quadrix-team.com/"
+					logo="quadrix.png"
+					desc="Fauteuil Tout Terrain handi"
+				/>
+				<Partner
+					name="euromove"
+					website="https://www.euromove.fr"
+					logo="euromove.webp"
+					desc="Euromove propose des solutions innovantes pour améliorer l’autonomie "
+				/>
+				<Partner
+					name="invacare"
+					website="https://invacare.fr/fr"
+					logo="invacare.png"
+					desc="Fabricant de matériel médical, fauteuil roulant manuel et électriques, déambulateur, scooter électrique ect."
+				/>
+				<Partner
+					name="marconnet technologie"
+					website="https://marconnet-technologies.com/"
+					logo="marconnet.jpg"
+					desc="Marconnet Technologies™, améliore la mobilité et la qualité de vie des personnes à mobilité réduite, qu'elles soient âgées ou handicapées."
+				/>
+			</div>
 		</section>
 	</main>
-	<Footer />
 </Layout>
 
 <style lang="scss">
-
-
-	h1,
-	h2,
-	h3 {
-		font-family: "sintony";
-		text-transform: uppercase;
-	}
-
-	p {
-		font-family: "akatabReg";
-	}
-
-	section {
-		min-height: 70vh;
-		width: 100%;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-
-		.container {
-			display: flex;
-			width: 90vw;
-			justify-content: space-evenly;
-			align-items: center;
-
-			&_imgs {
-				display: flex;
-				flex-direction: column;
-				min-height: 100vh;
-				justify-content: space-evenly;
-			}
-
-			img {
-				border-radius: 20px;
-				box-shadow: var(--shadow-1);
-				height: fit-content;
-				background-color: aliceblue;
-			}
-			p,
-			img {
-				max-width: 30vw;
-			}
-			p {
-				font-size: 1.2rem;
-			}
-		}
-	}
-
-	@media screen and (max-width: 850px) {
-		section {
-			.container {
-				flex-direction: column;
-				
-				p,
-				img {
-					max-width: 90vw;
-				}
-			}
-		}
+	.partner {
+		flex-wrap: wrap;
 	}
 </style>
