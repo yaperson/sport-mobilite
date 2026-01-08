@@ -13,7 +13,7 @@ import Partner from "../components/Partner.astro";
 		<section id="presentation">
 			<h2>Presentation</h2>
 			<div class="container">
-				<img src="./image_dev.svg" alt="" />
+				<img src="/magasin_dinan.png" alt="" />
 				<p>
 					Il nous est tous arrivé un jour d'aller à un salon, de
 					tomber sur un produit qui a l'air formidable, mais de ne pas
@@ -32,14 +32,14 @@ import Partner from "../components/Partner.astro";
 			<h2>Au Programme</h2>
 			<div class="container">
 				<div class="container_imgs">
-					<img src="./image_dev.svg" alt="" />
+					<img src="/hybride-para 1.png" alt="" />
 					<img src="./image_dev.svg" alt="" />
 				</div>
 				<ProgramSVG />
 			</div>
 		</section>
-		<section id="partenaires">
-			<h2>Nos Partenaires</h2>
+		<section id="partenaires" class="section__partner">
+			<h2>Nos Partenaires professionnels</h2>
 			<div class="container partner">
 				<Partner
 					name="axionsante"
@@ -71,6 +71,30 @@ import Partner from "../components/Partner.astro";
 					logo="marconnet.jpg"
 					desc="Marconnet Technologies™, améliore la mobilité et la qualité de vie des personnes à mobilité réduite, qu'elles soient âgées ou handicapées."
 				/>
+				<Partner
+					name="Shuchmann"
+					website="https://schuchmann.fr/"
+					logo="schuchmann.png"
+					desc="Des aides techniques innovantes au service des enfants et adolescents en situation de handicap"
+				/>
+			</div>
+		</section>
+		<section class="section__partner">
+			<h2>Nos Partenaires associatifs</h2>
+			<div class="container partner">
+				<Partner
+					name="jette moi un regard"
+					website="https://jettemoiunregard.fr/"
+					logo="jettemoiunregard.png"
+					desc="Récupération et don de matériel médical"
+				/>
+				<Partner
+					name="aventurehustive"
+					website="https://www.facebook.com/AventureHustive/?locale=fr_FR"
+					logo="aventurehustive.jpg"
+					desc="Rendre hommage à celles et ceux qui font le sport et les événements sportifs dans la Manche"
+				/>
+				
 			</div>
 		</section>
 	</main>
@@ -79,5 +103,11 @@ import Partner from "../components/Partner.astro";
 <style lang="scss">
 	.partner {
 		flex-wrap: wrap;
+	}
+
+	.section__partner {
+		h2 {
+			text-align: center;
+		}
 	}
 </style>
