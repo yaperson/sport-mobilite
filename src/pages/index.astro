@@ -32,8 +32,8 @@ import Partner from "../components/Partner.astro";
 			<h2>Au Programme</h2>
 			<div class="container">
 				<div class="container_imgs">
-					<img src="/hybride-para 1.png" alt="" />
-					<img src="./image_dev.svg" alt="" />
+					<img class="container_imgs__element" src="/hybride-para 1.png" alt="" />
+					<img class="container_imgs__element" src="./conference_2.jpg" alt="" />
 				</div>
 				<ProgramSVG />
 			</div>
@@ -156,6 +156,12 @@ import Partner from "../components/Partner.astro";
 	.section__partner {
 		h2 {
 			text-align: center;
+		}
+	}
+
+	.container_imgs {
+		&__element {
+
 		}
 	}
 </style>
