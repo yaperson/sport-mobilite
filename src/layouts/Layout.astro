@@ -4,6 +4,9 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
 const { description } = Astro.props
+const { origin, pathname } = Astro.url;
+const canonical = origin + pathname;
+
 ---
 <!doctype html>
 <html lang="en">
@@ -14,7 +17,7 @@ const { description } = Astro.props
 		<link rel="icon" type="image/x-icon" href="/favicon.svg">
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description}>
-		<link rel="canonical" href={`https://sport-mobilite.fr`} />
+		<link rel="canonical" href={canonical} />
 		<link rel="sitemap" href="/sitemap-index.xml" />
 		<meta property="og:title" content={`Sport & Mobilité`} />
 		<meta property="og:description" content={description} />
@@ -76,6 +79,10 @@ const { description } = Astro.props
 
 	p {
 		font-family: "akatabReg";
+	}
+
+	a {
+		color: rgb(82, 123, 255);
 	}
 
 	section {

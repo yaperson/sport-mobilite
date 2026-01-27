@@ -8,6 +8,7 @@ const url = 'https://sport-mobilite.fr';
 // https://astro.build/config
 export default defineConfig({
   site: url,
+  trailingSlash: 'always',
   integrations: [
     sitemap({
       filter: (page) => 
