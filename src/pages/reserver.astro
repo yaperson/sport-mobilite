@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import ConferenceLanding from "../components/ConferenceLanding.astro";
 ---
 
 <Layout
@@ -8,30 +9,23 @@ import Layout from "../layouts/Layout.astro";
   <main>
       <h1>Réservations</h1>
 
-          <section id="conference">
-      <div class="container conference">
-        <div class="conference_text">
-          <h2>Conférence</h2>
-
-          <p>
-            Ne manquez pas la conférence de <strong>Géraud Paillot</strong>, fondateur de l’association 
+    <section id="conference">
+      <ConferenceLanding 
+        title="Conférence"
+        text={`Ne manquez pas la conférence de <strong>Géraud Paillot</strong>, fondateur de l’association 
             <a href="https://www.facebook.com/AventureHustive/?locale=fr_FR" target="_blank">Aventure HUSTIVE</a> sur la résilience et la gestion du mental, lors de 
             la journée <strong>Sport & Mobilité</strong> le 
-            <time datetime="2026-04-23">23 avril 2026</time>, organisée par <a href="https://hopicile.fr" target="_blank">Hopicile</a>.
-          </p>
-
-          </p>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeCql9qfxa2UxQqOQYYCHm1CVvMV0ETXQAgjEZs44FJpV6KdA/viewform?usp=header" 
-            class="conference_cta" target="_blank">📅 Réserver ma place </a>
-        </div>
-
-        <img
-          src="/ConfHopicile.png"
-          alt="Affiche de la conférence Résilience et gestion du mental par Géraud Paillot"
-          width="1200"
-          height="675"
-        />
-      </div>
+            <time datetime="2026-04-23">23 avril 2026</time>, organisée par <a href="https://hopicile.fr" target="_blank">Hopicile</a>.`} 
+        image="/ConfHopicile.jpg" 
+        altImage="Affiche de la conférence Résilience et gestion du mental par Géraud Paillot" 
+        revervationLink="https://docs.google.com/forms/d/e/1FAIpQLSeCql9qfxa2UxQqOQYYCHm1CVvMV0ETXQAgjEZs44FJpV6KdA/viewform?usp=header" 
+      />
+      <ConferenceLanding 
+        title="Présentation Handisub"
+        text={`Découvrez l’association <strong>Handisub</strong>, qui rend la plongée sous-marine accessible aux personnes en situation de handicap, et assistez à la projection d’une courte vidéo présentant l'association !`}
+        image="/partner/handisub.jpg" 
+        altImage="Logo de l'association Handisub" 
+      />
     </section>
 
     <section>
@@ -64,88 +58,8 @@ import Layout from "../layouts/Layout.astro";
 
     section {
       width: 90vw;
-
       img {
         max-width: 30vw;
-      }
-    }
-    #conference {
-      .conference {
-        gap: 4rem;
-
-        &_text {
-          display: flex;
-          flex-direction: column;
-          gap: 1.5rem;
-
-          .conference_cta {
-            width: fit-content;
-            font-family: "sintony";
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            text-decoration: none;
-            color: inherit;
-            font-weight: bold;
-            position: relative;
-            padding-bottom: 0.3rem;
-
-            display: flex;
-            align-items: center;
-            border-radius: 12px;
-
-            
-            &::after {
-              content: "";
-              position: absolute;
-              left: 0;
-              bottom: 0;
-              width: 100%;
-              height: 2px;
-              background-color: currentColor;
-              transform: scaleX(1);
-              transform-origin: left;
-            }
-            
-            &:hover::after {
-              transform: scaleX(1);
-              animation: reserver 0.8s ease forwards;
-            }
-          }
-        }
-      }
-      @keyframes reserver {
-          0% {
-            transform: scaleX(0);
-            transform-origin: left;
-          }
-
-          50% {
-            transform: scaleX(1);
-            transform-origin: left;
-          }
-
-          50.01% {
-            transform-origin: right;
-          }
-
-          100% {
-            transform: scaleX(0);
-            transform-origin: right;
-          }
-        }
-
-      @media screen and (max-width: 850px) {
-        .conference {
-          gap: 2rem;
-
-          &_text {
-            align-items: center;
-
-            a {
-              margin-top: 0.5rem;
-            }
-          }
-        }
       }
     }
   }

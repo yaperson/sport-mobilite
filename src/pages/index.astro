@@ -6,8 +6,7 @@ import Partner from "../components/Partner.astro";
 ---
 
 <Layout description=`Journée dédiée à l'essai de
-					toutes ces solutions de mobilités et de sports, qui demandent
-					toujours plus de place que les autres ! Première édition le 23 Avril 2026`>
+					produits lié au sport et à la mobilité adapté au handicap ! Première édition le 23 Avril 2026`>
 	<main>
     	<HomeBackground />
 		<section id="presentation">
@@ -30,10 +29,12 @@ import Partner from "../components/Partner.astro";
 		</section>
 		<section id="programme">
 			<h2>Au Programme</h2>
+			<p>Des essais, des conférences et des animations seront proposés tout au long de la journée lors de l'événement.
+				Venez découvrir des solutions de mobilité adaptées, essayer des produits en conditions réelles et échanger avec des professionnels, des clubs et des associations liées au handicap.</p>
 			<div class="container">
 				<div class="container_imgs">
-					<img class="container_imgs__element" src="/hybride-para 1.png" alt="" />
-					<img class="container_imgs__element" src="./conference_2.jpg" alt="" />
+					<img class="container_imgs__element" src="/hybride-para 1.png" alt="image handbike - sport mobilité" />
+					<img class="container_imgs__element" src="./conference_2.jpg" alt="image de Géraud Paillot en conférence" />
 				</div>
 				<ProgramSVG />
 			</div>
@@ -125,22 +126,52 @@ import Partner from "../components/Partner.astro";
 					logo="pridequantum.png"
 					desc="Pride Mobility France est un acteur majeur des solutions de mobilité en France"
 				/>
+				<Partner
+					name="Scooterpac"
+					website="https://www.scooterpac.com/"
+					logo="scooterpac.png"
+					desc="Des véhicules tout-terrain aux fauteuils roulants légers en passant par les accessoires pour scooters de mobilité"
+				/>
+				<Partner
+					name="powersoccershop"
+					website="https://powersoccershop.com/"
+					logo="powersoccershop.png"
+					desc="Hopicile, distributeur de Strike Force"
+				/>
 			</div>
 		</section>
 		<section class="section__partner">
 			<h2>Nos Partenaires associatifs</h2>
 			<div class="container partner">
 				<Partner
-					name="jette moi un regard"
+					name="Jette moi un regard"
 					website="https://jettemoiunregard.fr/"
 					logo="jettemoiunregard.png"
 					desc="Récupération et don de matériel médical"
 				/>
 				<Partner
-					name="aventurehustive"
+					name="Aventurehustive"
 					website="https://www.facebook.com/AventureHustive/?locale=fr_FR"
 					logo="aventurehustive.jpg"
 					desc="Rendre hommage à celles et ceux qui font le sport et les événements sportifs dans la Manche"
+				/>
+				<Partner
+					name="Commelesautres"
+					website="https://www.commelesautres.org/antenne/bretagne"
+					logo="CLA_BZH.jpg"
+					desc="Une approche originale de l'accompagnement social"
+				/>
+				<Partner
+					name="Merlib"
+					website="/"
+					logo="merlib.png"
+					desc="Le libre accès à la mer pour les handicapés"
+				/>
+				<Partner
+					name="Handisub"
+					website="https://www.csce-stmalo.fr/category/commissions/comission-handi/"
+					logo="handisub.jpg"
+					desc="Le monde sous-marin accessible aux personnes en situation de handicap"
 				/>
 				
 			</div>
@@ -179,6 +210,14 @@ import Partner from "../components/Partner.astro";
 	.container_imgs {
 		&__element {
 
+		}
+	}
+
+	#programme {
+		p {
+			text-align: center;
+			max-width: 80vw;
+			font-size: 1.2rem;
 		}
 	}
 </style>

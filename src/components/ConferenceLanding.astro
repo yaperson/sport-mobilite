@@ -1,0 +1,110 @@
+---
+const {title, text, image, altImage, revervationLink} = Astro.props;
+
+
+---
+
+<div class="container conference">
+        <div class="conference_text">
+          <h2>{title}</h2>
+        <p set:html={text}></p>
+        {!revervationLink ? (
+        <p class="conference_cta">📅 Le 23 Avril 2026</p>
+        ) : (
+        <a 
+            href={revervationLink}
+            class="conference_cta"
+            target="_blank"
+        >
+            📅 Réserver ma place
+        </a>
+        )}
+        </div>
+        <img
+          src={image}
+          alt={altImage}
+          width="1200"
+          height="675"
+        />
+</div>
+
+<style lang="scss">
+.conference {
+        gap: 4rem;
+        margin: 1em;
+
+        &_text {
+          display: flex;
+          flex-direction: column;
+          gap: 1.5rem;
+
+          .conference_cta {
+            width: fit-content;
+            font-family: "sintony";
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            text-decoration: none;
+            color: inherit;
+            font-weight: bold;
+            position: relative;
+            padding-bottom: 0.3rem;
+
+            display: flex;
+            align-items: center;
+            border-radius: 12px;
+
+            
+            &::after {
+              content: "";
+              position: absolute;
+              left: 0;
+              bottom: 0;
+              width: 100%;
+              height: 2px;
+              background-color: currentColor;
+              transform: scaleX(1);
+              transform-origin: left;
+            }
+            
+            &:hover::after {
+              transform: scaleX(1);
+              animation: reserver 0.8s ease forwards;
+            }
+          }
+        }
+      }
+      @keyframes reserver {
+          0% {
+            transform: scaleX(0);
+            transform-origin: left;
+          }
+
+          50% {
+            transform: scaleX(1);
+            transform-origin: left;
+          }
+
+          50.01% {
+            transform-origin: right;
+          }
+
+          100% {
+            transform: scaleX(0);
+            transform-origin: right;
+          }
+        }
+
+      @media screen and (max-width: 850px) {
+        .conference {
+          gap: 2rem;
+
+          &_text {
+            align-items: center;
+
+            a {
+              margin-top: 0.5rem;
+            }
+          }
+        }
+      }
+</style>
