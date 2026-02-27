@@ -38,6 +38,14 @@ import Partner from "../components/Partner.astro";
 				</div>
 				<ProgramSVG />
 			</div>
+			<div class="container_plans">
+				<h3>Plan de l'évenement</h3>
+				<p>De l'herbe, du sable, de la terre, du gravier, du goudron et un circuit avec piste cyclable vous attendent pour tester les produits dans les conditions les plus représentatives de ce qui peut vous attendre au quotidien !</p>
+				<div class="container_plans__imgs">
+					<img src="/plan-global.png" alt="Plan du site">
+					<img src="/circuit-500m.png" alt="Plan du circuit">
+				</div>
+			</div>
 		</section>
 		<section id="partenaires" class="section__partner">
 			<h2>Nos Partenaires professionnels</h2>
@@ -206,10 +214,26 @@ import Partner from "../components/Partner.astro";
 			text-align: center;
 		}
 	}
+	.container_plans {
+		display: flex;
+		width: 100vw;
+		margin-top: 5em;
+		margin-bottom: 5em;
+		flex-direction: column;
+		align-items: center;
+		&__imgs {
+			display: flex;
+			justify-content: space-evenly;
+			width: 100%;
 
-	.container_imgs {
-		&__element {
-
+			img {
+				border-radius: 20px;
+				box-shadow: var(--shadow-1);
+				height: fit-content;
+				background-color: aliceblue;
+				max-height: 20em;
+				margin: 1em;
+			}
 		}
 	}
 
@@ -218,6 +242,20 @@ import Partner from "../components/Partner.astro";
 			text-align: center;
 			max-width: 80vw;
 			font-size: 1.2rem;
+		}
+	}
+
+	@media screen and (max-width: 850px) {
+		.container_plans {
+			&__imgs {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+
+				img {
+					max-width: 90%;
+				}
+			}
 		}
 	}
 </style>
