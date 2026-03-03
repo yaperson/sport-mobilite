@@ -3,7 +3,7 @@ const {website, name, logo, desc} = Astro.props;
 ---
 
 <a href={website} target="_blank" title={desc}>
-    <img class=`${name} partnerLogo` id={name} src=`/partner/${logo}` alt={'logo '+ name}>
+    <img class=`${name} partnerLogo` id={name} src=`/partner/${logo}` alt={'logo '+ name} loading="lazy">
 </a>
 
 <style>

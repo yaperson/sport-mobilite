@@ -5,14 +5,16 @@ import HomeBackground from "../components/HomeBackground.astro";
 import Partner from "../components/Partner.astro";
 ---
 
-<Layout description=`Journée dédiée à l'essai de
-					produits lié au sport et à la mobilité adapté au handicap ! Première édition le 23 Avril 2026`>
+<Layout
+	description=`Journée dédiée à l'essai de
+					produits lié au sport et à la mobilité adapté au handicap ! Première édition le 23 Avril 2026`
+>
 	<main>
-    	<HomeBackground />
+		<HomeBackground />
 		<section id="presentation">
 			<h2>Presentation</h2>
 			<div class="container">
-				<img src="/magasin_dinan.png" alt="" />
+				<img loading="lazy" src="/magasin_dinan.png" alt="" />
 				<p>
 					Il nous est tous arrivé un jour d'aller à un salon, de
 					tomber sur un produit qui a l'air formidable, mais de ne pas
@@ -21,29 +23,104 @@ import Partner from "../components/Partner.astro";
 					Frustrée, l'équipe d'Hopicile a décidé que cette époque était
 					révolue !
 					<br /><br />
-					C'est là qu'est née l'idée d'une journée dédiée à l'essai de
-					toutes ces solutions de mobilités et de sports, qui demandent
-					toujours plus de place que les autres.
+					C'est là qu'est née l'idée d'une journée dédiée à l'essai de toutes
+					ces solutions de mobilités et de sports, qui demandent toujours
+					plus de place que les autres.
 				</p>
 			</div>
 		</section>
 		<section id="programme">
 			<h2>Au Programme</h2>
-			<p>Des essais, des conférences et des animations seront proposés tout au long de la journée lors de l'événement.
-				Venez découvrir des solutions de mobilité adaptées, essayer des produits en conditions réelles et échanger avec des professionnels, des clubs et des associations liées au handicap.</p>
+			<p class="programme_p">
+				Des essais, des conférences et des animations seront proposés
+				tout au long de la journée lors de l'événement. Venez découvrir
+				des solutions de mobilité adaptées, essayer des produits en
+				conditions réelles et échanger avec des professionnels, des
+				clubs et des associations liées au handicap.
+			</p>
 			<div class="container">
 				<div class="container_imgs">
-					<img class="container_imgs__element" src="/hybride-para 1.png" alt="image handbike - sport mobilité" />
-					<img class="container_imgs__element" src="./conference_2.jpg" alt="image de Géraud Paillot en conférence" />
+					<img
+						loading="lazy"
+						class="container_imgs__element"
+						src="/hybride-para 1.png"
+						alt="image handbike - sport mobilité"
+					/>
+					<img
+						loading="lazy"
+						class="container_imgs__element"
+						src="./conference_2.jpg"
+						alt="image de Géraud Paillot en conférence"
+					/>
 				</div>
 				<ProgramSVG />
 			</div>
+			<div class="container_tombola">
+				<h3>Tombola</h3>
+				<p>Au profit de l'association Aventure Hustive</p>
+				<div class="container_tombola__imgs">
+					<div>
+						<h4><b>1er prix</b></h4>
+						<p>
+							stages de découverte du pilotage sur circuit
+							accessibles aux personnes à mobilité réduite, en Porsche
+							911 adaptée avec Handisportauto au Mans !
+						</p>
+					</div>
+					<img
+						loading="lazy"
+						src="/premier-prix.png"
+						alt="image du premier prix, Porsches adapté"
+					/>
+				</div>
+				<div class="container_tombola__imgs" id="secondPrice">
+					<img
+						loading="lazy"
+						src="/deuxieme-prix.png"
+						alt="image du deuxieme prix, Joelette"
+					/>
+					<div>
+
+					<h4><b>2eme prix : </b></h4>
+					<p>
+						Un tour en Joelette avec le CJF au Mont St Michel  !
+					</p>
+					</div>
+				</div>
+
+				<div class="container_tombola__imgs">
+					<div>
+						<h4><b>Et bien d'autres !</b></h4>
+						<p>
+							A retrouver sur place
+						</p>
+					</div>
+					<img
+						loading="lazy"
+						src="/autres-prix.png"
+						alt="image du premier prix, Porsches adapté"
+					/>
+				</div>
+			</div>
 			<div class="container_plans">
 				<h3>Plan de l'évenement</h3>
-				<p>De l'herbe, du sable, de la terre, du gravier, du goudron et un circuit avec piste cyclable vous attendent pour tester les produits dans les conditions les plus représentatives de ce qui peut vous attendre au quotidien !</p>
+				<p>
+					De l'herbe, du sable, de la terre, du gravier, du goudron et
+					un circuit avec piste cyclable vous attendent pour tester
+					les produits dans les conditions les plus représentatives de
+					ce qui peut vous attendre au quotidien !
+				</p>
 				<div class="container_plans__imgs">
-					<img src="/plan-global.png" alt="Plan du site">
-					<img src="/circuit-500m.png" alt="Plan du circuit">
+					<img
+						loading="lazy"
+						src="/plan-global.png"
+						alt="Plan du site"
+					/>
+					<img
+						loading="lazy"
+						src="/circuit-500m.png"
+						alt="Plan du circuit"
+					/>
 				</div>
 			</div>
 		</section>
@@ -65,7 +142,7 @@ import Partner from "../components/Partner.astro";
 				<Partner
 					name="euromove"
 					website="https://www.euromove.fr"
-					logo="euromove.webp"
+					logo="euromove.jpg"
 					desc="Euromove propose des solutions innovantes pour améliorer l’autonomie "
 				/>
 				<Partner
@@ -181,10 +258,15 @@ import Partner from "../components/Partner.astro";
 					logo="handisub.jpg"
 					desc="Le monde sous-marin accessible aux personnes en situation de handicap"
 				/>
-				
+				<Partner
+					name="CJF"
+					website="https://www.cjfhandisport.com/"
+					logo="cjf.png"
+					desc="CJF HANDISPORT Section du Cercle Jules Ferry à Saint-Malo"
+				/>
 			</div>
 		</section>
-<!-- 		
+		<!-- 		
 		<section class="section__faq">
 			<h2>FAQ</h2>
 			<details>
@@ -214,7 +296,17 @@ import Partner from "../components/Partner.astro";
 			text-align: center;
 		}
 	}
-	.container_plans {
+	#programme {
+		p {
+			font-size: 1.2rem;
+		}
+		.container_plans p, .programme_p {
+			text-align: center;
+			max-width: 80vw;
+		}
+	}
+	.container_plans,
+	.container_tombola {
 		display: flex;
 		width: 100vw;
 		margin-top: 5em;
@@ -230,23 +322,36 @@ import Partner from "../components/Partner.astro";
 				border-radius: 20px;
 				box-shadow: var(--shadow-1);
 				height: fit-content;
-				background-color: aliceblue;
 				max-height: 20em;
 				margin: 1em;
 			}
 		}
 	}
 
-	#programme {
+	.container_tombola {
+		background-color: rgba(240, 248, 255, 0.579);
+	}
+	.container_tombola__imgs {
+		display: flex;
+		justify-content: space-evenly;
+		align-items: center;
+		width: 100%;
+		img {
+			border-radius: 20px;
+			box-shadow: none;
+			height: fit-content;
+			max-height: 20em;
+			margin: 1em;
+		}
 		p {
-			text-align: center;
-			max-width: 80vw;
-			font-size: 1.2rem;
+			text-align: left;
+			max-width: 40vw;
 		}
 	}
 
 	@media screen and (max-width: 850px) {
-		.container_plans {
+		.container_plans,
+		.container_tombola {
 			&__imgs {
 				display: flex;
 				flex-direction: column;
@@ -256,6 +361,27 @@ import Partner from "../components/Partner.astro";
 					max-width: 90%;
 				}
 			}
+		}
+		.container_tombola__imgs {
+			display: flex;
+			justify-content: space-evenly;
+			align-items: center;
+			width: 100%;
+			img {
+				border-radius: 20px;
+				box-shadow: none;
+				height: fit-content;
+				max-height: 20em;
+				margin: 1em;
+			}
+			p {
+				text-align: left;
+				max-width: 80vw;
+			}
+		}
+
+		#secondPrice {
+			flex-direction: column-reverse;
 		}
 	}
 </style>
