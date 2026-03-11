@@ -45,7 +45,7 @@ import Logo from "./Logo.astro"
 
 </div>
 <a href="https://maps.app.goo.gl/z729vgJ5uK6gggP89" target="_blank" class="addressContainer">Hopicile, 5 Boulevard de préval, 22100 Dinan</a>
-
+<!-- <img id="backgroundFlyer" src="/flyer-back.png" alt="affiche de l'evenement"> -->
 <style>
 .homeGeometry {
 	height: 100vh;
@@ -56,10 +56,15 @@ import Logo from "./Logo.astro"
     z-index: -1;
 }
 .geometrySVG {
-    max-width: fit-content;
-    max-height: inherit;
 	position: absolute;
+	top: 0;
 	height: 100%;
+	width: auto;
+	z-index: -1;
+	pointer-events: none;
+ 
+	object-fit: cover;
+	will-change: transform;
 }
 
 .logoContainer {
@@ -94,3 +99,17 @@ h1, h2, h3, .addressContainer {
 	}
 }
 </style>
+<script>
+	const bg = document.getElementsByClassName("geometrySVG");
+
+	function parallax() {
+		const scrolled = window.scrollY;
+		for (let index = 0; index < bg.length; index++) {
+			const element = bg[index];
+			element.style.transform = `translateY(${scrolled * 0.3}px)`;
+		}
+		requestAnimationFrame(parallax);
+	}
+
+	requestAnimationFrame(parallax);
+</script>

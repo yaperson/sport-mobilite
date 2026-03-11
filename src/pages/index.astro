@@ -14,7 +14,8 @@ import Partner from "../components/Partner.astro";
 		<section id="presentation">
 			<h2>Presentation</h2>
 			<div class="container">
-				<img loading="lazy" src="/magasin_dinan.png" alt="" />
+				<img loading="lazy" src="/affiche_sport_mobilité_officielle_page-0001.jpg" alt="" />
+				<!-- <img loading="lazy" src="/magasin_dinan.png" alt="" /> -->
 				<p>
 					Il nous est tous arrivé un jour d'aller à un salon, de
 					tomber sur un produit qui a l'air formidable, mais de ne pas
@@ -69,6 +70,7 @@ import Partner from "../components/Partner.astro";
 					</div>
 					<img
 						loading="lazy"
+						class="tombola-parallax"
 						src="/premier-prix.png"
 						alt="image du premier prix, Porsches adapté"
 					/>
@@ -76,6 +78,7 @@ import Partner from "../components/Partner.astro";
 				<div class="container_tombola__imgs" id="secondPrice">
 					<img
 						loading="lazy"
+						class="tombola-parallax"
 						src="/deuxieme-prix.png"
 						alt="image du deuxieme prix, Joelette"
 					/>
@@ -98,6 +101,7 @@ import Partner from "../components/Partner.astro";
 					<img
 						loading="lazy"
 						src="/autres-prix.png"
+						class="tombola-parallax"
 						alt="image du premier prix, Porsches adapté"
 					/>
 				</div>
@@ -329,6 +333,7 @@ import Partner from "../components/Partner.astro";
 	}
 
 	.container_tombola {
+		z-index: 0;
 		background-color: rgba(240, 248, 255, 0.579);
 	}
 	.container_tombola__imgs {
@@ -347,6 +352,11 @@ import Partner from "../components/Partner.astro";
 			text-align: left;
 			max-width: 40vw;
 		}
+	}
+
+	.tombola-parallax {
+		will-change: transform;
+		transition: transform 0.1s linear;
 	}
 
 	@media screen and (max-width: 850px) {
@@ -385,3 +395,32 @@ import Partner from "../components/Partner.astro";
 		}
 	}
 </style>
+<script>
+	window.addEventListener("DOMContentLoaded", () => {
+		const images = document.querySelectorAll(".tombola-parallax");
+
+		function updateParallax() {
+			const scrollY = window.scrollY;
+			const windowHeight = window.innerHeight;
+
+			images.forEach((img) => {
+				const rect = img.getBoundingClientRect();
+				const elementTop = rect.top + scrollY;
+
+				// distance par rapport au centre écran
+				const distance = scrollY + windowHeight / 2 - elementTop;
+
+				// vitesse du parallax
+				const speed = 0.05;
+
+				img.style.transform = `translateY(${distance * speed}px)`;
+			});
+		}
+
+		window.addEventListener("scroll", () => {
+			requestAnimationFrame(updateParallax);
+		});
+
+		updateParallax();
+	});
+</script>

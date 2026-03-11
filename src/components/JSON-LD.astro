@@ -1,78 +1,91 @@
 <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Event",
-    "name": "Sport & Mobilité - Journée d'essai",
-    "startDate": "2026-04-23T10:00",
-    "endDate": "2026-04-23T18:00",
-    "eventStatus": "https://schema.org/EventScheduled",
-    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-    "location": {
-      "@type": "Place",
-      "name": "Hopicile",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "5 boulevard de Préval",
-        "addressLocality": "Dinan",
-        "addressRegion": "Bretagne",
-        "postalCode": "22100",
-        "addressCountry": "FR"
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "@id": "https://sport-mobilite.fr/#event-2026",
+  "name": "Sport & Mobilité - Journée d'essai",
+  "startDate": "2026-04-23T10:00",
+  "endDate": "2026-04-23T18:00",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "location": {
+    "@type": "Place",
+    "name": "Hopicile",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "5 boulevard de Préval",
+      "addressLocality": "Dinan",
+      "addressRegion": "Bretagne",
+      "postalCode": "22100",
+      "addressCountry": "FR"
+    }
+  },
+  "image": [
+    "https://sport-mobilite.fr/Component%205.png"
+  ],
+  "description": "Participez à la journée Sport & Mobilité le 23 avril 2026 à Hopicile, Dinan : une journée unique avec conférences, associations partenaires et essais de solutions de mobilité et de sport adaptées.",
+  "organizer": {
+    "@type": "Organization",
+    "name": "Hopicile",
+    "url": "https://hopicile.fr",
+    "logo": "https://hopicile.fr/logo_pdv.png"
+  },
+  "url": "https://sport-mobilite.fr",
+  "offers": {
+    "@type": "Offer",
+    "url": "https://sport-mobilite.fr",
+    "price": "0",
+    "priceCurrency": "EUR",
+    "validFrom": "2026-01-01T00:00",
+    "availability": "https://schema.org/InStock"
+  },
+  "subEvent": [
+    {
+      "@id": "https://sport-mobilite.fr/#conference-1",
+      "@type": "Event",
+      "name": "Conférence Résilience & gestion du mental",
+      "description": "Ne manquez pas la première conférence de la journée à 11h de Géraud Paillot, fondateur de l’association Aventure HUSTIVE sur la résilience et la gestion du mental, lors de la journée Sport & Mobilité le 23 avril 2026, organisée par Hopicile.",
+      "startDate": "2026-04-23T11:00",
+      "endDate": "2026-04-23T12:00",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "location": {
+        "@type": "Place",
+        "name": "Hopicile",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Dinan",
+          "addressCountry": "FR"
+        }
+      },
+      "performer": {
+        "@type": "Person",
+        "name": "Géraud Paillot",
+        "sameAs": "https://fr.linkedin.com/in/g%C3%A9raud-paillot-de-montabert-3a52271"
       }
     },
-    "image": ["https://sport-mobilite.fr/Component%205.png"],
-    "description": "Participez à la journée Sport & Mobilité le 23 avril 2026 à Hopicile, Dinan : une journée unique avec conférences, associations partenaires et essais de solutions de mobilité et de sport adaptées",
-    "organizer": {
-      "@type": "Organization",
-      "name": "Hopicile",
-      "url": "https://hopicile.fr"
-    },
-    "url": "https://hopicile.fr",
-    "offers": {
-      "@type": "Offer",
-      "url": "https://sport-mobilite.fr",
-      "price": "0",
-      "priceCurrency": "EUR",
-      "availability": "https://schema.org/InStock"
-    },
-    "subEvent": {{
-        "@type": "Event",
-        "name": "Conférence Résilience & gestion du mental",
-        "startDate": "2026-04-23T11:00",
-        "endDate": "2026-04-23T12:00",
-        "eventStatus": "https://schema.org/EventScheduled",
-        "location": {
-          "@type": "Place",
-          "name": "Hopicile",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Dinan",
-            "addressCountry": "FR"
-          }
-        },
-        "performer": {
-          "@type": "Person",
-          "name": "Géraud Paillot"
+    {
+      "@id": "https://sport-mobilite.fr/#conference-2",
+      "@type": "Event",
+      "name": "Conférence Résilience & gestion du mental | deuxième session",
+      "startDate": "2026-04-23T15:00",
+      "endDate": "2026-04-23T16:00",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "description": "Ne manquez pas la deuxième conférence de la journée à 15h de Géraud Paillot, fondateur de l’association Aventure HUSTIVE sur la résilience et la gestion du mental, lors de la journée Sport & Mobilité le 23 avril 2026, organisée par Hopicile.",
+      "location": {
+        "@type": "Place",
+        "name": "Hopicile",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Dinan",
+          "addressCountry": "FR"
         }
-      },{
-        "@type": "Event",
-        "name": "Conférence Résilience & gestion du mental | deuxième session",
-        "startDate": "2026-04-23T15:00",
-        "endDate": "2026-04-23T16:00",
-        "eventStatus": "https://schema.org/EventScheduled",
-        "location": {
-          "@type": "Place",
-          "name": "Hopicile",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Dinan",
-            "addressCountry": "FR"
-          }
-        },
-        "performer": {
-          "@type": "Person",
-          "name": "Géraud Paillot"
-        }
+      },
+      "performer": {
+        "@type": "Person",
+        "name": "Géraud Paillot",
+        "sameAs": "https://fr.linkedin.com/in/g%C3%A9raud-paillot-de-montabert-3a52271"
       }
     }
-  }
+  ]
+}
 </script>
